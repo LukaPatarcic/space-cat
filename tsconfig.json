@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@type/*": ["src/types/*"],
+      "@component/*": ["src/components/*"]
+    },
+    "skipLibCheck": true,
+    "strict": true
+  }
+}
