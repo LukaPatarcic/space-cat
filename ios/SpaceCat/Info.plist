@@ -55,5 +55,9 @@
 	<array>
 	    <string>Ionicons.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+    <string>SpaceCat wants access to your camera</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>SpaceCat wants access to your gallery</string>
 </dict>
 </plist>

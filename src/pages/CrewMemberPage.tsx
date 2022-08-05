@@ -6,6 +6,8 @@ import { PERMISSIONS, requestMultiple } from 'react-native-permissions';
 import { showToast } from '../helpers/toast';
 import { capitalize } from '../helpers';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { TEXTS } from '../constants/texts';
+import Clipboard from '@react-native-clipboard/clipboard';
 
 type CrewMemberScreenRouteProp = RouteProp<CrewMemberStackParamList, 'CrewMember'>;
 type CrewMemberScreenNavigationProp = NavigationProp<CrewMemberStackParamList, 'CrewMembers'>;
@@ -19,18 +21,22 @@ const iOSPermissions = [
 ];
 
 const styles = StyleSheet.create({
-    imageContainer: {
-        height: 180,
-        width: 180,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
+    container: { marginTop: 20, flex: 1 },
+    imageContainer: { flex: 1, alignItems: 'center' },
+    textContainer: { flex: 1, marginLeft: 10 },
+    wikipedia: {
+        textDecorationLine: 'underline',
+        color: 'lightblue',
+        fontSize: 18,
     },
     image: {
         borderRadius: 100,
         height: 180,
         width: 180,
     },
+    status: { fontSize: 18 },
+    name: { fontSize: 24, color: 'black' },
+    agency: { fontSize: 18, color: 'grey' },
 });
 
 const CrewMemberPage: FC = () => {
@@ -46,7 +52,7 @@ const CrewMemberPage: FC = () => {
                     (permission) => statuses[permission] === 'granted',
                 );
                 if (!granted) {
-                    showToast('You need to allow all permissions to access this page');
+                    showToast(TEXTS.allow_all_permissions);
                     navigation.navigate('CrewMembers');
                 }
             },
@@ -55,41 +61,42 @@ const CrewMemberPage: FC = () => {
 
     const onOpenLink = () => {
         Linking.openURL(crewMember.wikipedia).catch(() => {
-            showToast('Could not open link');
+            showToast(TEXTS.could_not_open_link);
         });
     };
 
+    const onCopyToClipboard = () => {
+        Clipboard.setString(crewMember.wikipedia);
+        showToast(TEXTS.copied_to_clipboard);
+    };
+
     return (
-        <View style={{ marginTop: 20, flex: 1 }}>
-            <View style={{ flex: 1, justifyContent: 'space-between', flexDirection: 'row' }}>
-                <View style={{ flex: 1 }}>
-                    <Image
-                        source={{ uri: crewMember.image }}
-                        resizeMode="contain"
-                        style={styles.image}
+        <View style={styles.container}>
+            <View style={styles.imageContainer}>
+                <Image
+                    source={{ uri: crewMember.image }}
+                    resizeMode="contain"
+                    style={styles.image}
+                />
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={styles.name}>{crewMember.name}</Text>
+                <Text style={styles.agency}>{crewMember.agency}</Text>
+                <Text style={styles.wikipedia} onPress={onOpenLink} onLongPress={onCopyToClipboard}>
+                    Wikipedia link
+                </Text>
+                <Text style={styles.status}>
+                    Status: {capitalize(crewMember.status)}{' '}
+                    <Icon
+                        name={
+                            crewMember.status === 'active'
+                                ? 'checkmark-circle-sharp'
+                                : 'close-circle-sharp'
+                        }
+                        color={crewMember.status === 'active' ? 'green' : 'red'}
+                        size={20}
                     />
-                </View>
-                <View style={{ flex: 1 }}>
-                    <Text style={{ fontSize: 20, color: 'black' }}>{crewMember.name}</Text>
-                    <Text>{crewMember.agency}</Text>
-                    <Text
-                        style={{ textDecorationLine: 'underline', color: 'lightblue' }}
-                        onPress={onOpenLink}
-                    >
-                        Wikipedia link
-                    </Text>
-                    <Text>
-                        Status: {capitalize(crewMember.status)}{' '}
-                        <Icon
-                            name={
-                                crewMember.status === 'active'
-                                    ? 'checkmark-circle-sharp'
-                                    : 'close-circle-sharp'
-                            }
-                            size={20}
-                        />{' '}
-                    </Text>
-                </View>
+                </Text>
             </View>
         </View>
     );

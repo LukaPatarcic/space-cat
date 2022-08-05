@@ -13,6 +13,7 @@ import { showToast } from './src/helpers/toast';
 import { CrewMemberStackParamList, TabParamList } from './src/types/router';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { PRIMARY_COLOR } from './src/constants/colors';
+import { TEXTS } from './src/constants/texts';
 
 const queryClient = new QueryClient();
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -21,7 +22,7 @@ const CrewMembersStack = createNativeStackNavigator<CrewMemberStackParamList>();
 // eslint-disable-next-line no-unused-vars
 const icons: { [key in keyof TabParamList]: string } = {
     Rockets: 'rocket',
-    RootCrewMembers: 'md-people-sharp',
+    RootCrewMembers: 'md-people',
 };
 
 function CrewMembersStackPage() {
@@ -45,8 +46,9 @@ const App = () => {
     useEffect(() => {
         onlineManager.setEventListener((setOnline) => {
             return NetInfo.addEventListener((state) => {
-                console.log(state);
-                showToast(state.isConnected ? 'Online' : 'Offline');
+                if (!state.isConnected) {
+                    showToast(TEXTS.no_internet_connection);
+                }
                 setOnline(!!state.isConnected);
             });
         });
@@ -60,7 +62,9 @@ const App = () => {
                         tabBarActiveTintColor: PRIMARY_COLOR,
                         tabBarInactiveTintColor: 'rgba(0,0,0,0.5)',
                         tabBarIcon: ({ focused, color, size }) => {
-                            const iconName = icons[`${route.name}`] + focused ? '-outline' : '';
+                            const iconName = `${icons[`${route.name}`]}${
+                                focused ? '' : '-outline'
+                            }`;
                             return <Icon name={iconName} size={size} color={color} />;
                         },
                     })}

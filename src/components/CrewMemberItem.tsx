@@ -4,6 +4,7 @@ import { Crew } from '../types/crew';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { PRIMARY_COLOR } from '../constants/colors';
+
 interface Props {
     crewMember: Crew;
     onPress: () => void;
