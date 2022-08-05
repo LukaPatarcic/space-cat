@@ -29,15 +29,16 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         color: 'lightblue',
         fontSize: 18,
+        marginTop: 5,
     },
     image: {
         borderRadius: 100,
         height: 180,
         width: 180,
     },
-    status: { fontSize: 18 },
+    status: { fontSize: 18, color: 'grey', marginTop: 5 },
     name: { fontSize: 24, color: 'black', fontWeight: 'bold' },
-    agency: { fontSize: 18, color: 'grey' },
+    agency: { fontSize: 18, color: 'grey', marginTop: 5 },
 });
 
 const CrewMemberPage: FC = () => {

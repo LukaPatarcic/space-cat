@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 import { Rocket } from '@type/rocket';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface Props {
     rocket: Rocket;
@@ -21,7 +20,6 @@ const styles = StyleSheet.create({
         marginRight: 16,
         borderRadius: 15,
         overflow: 'hidden',
-        shadowColor: Colors.shadowColor,
         shadowOffset: { width: 0, height: 5 },
         shadowOpacity: 2,
         shadowRadius: 2,
@@ -38,6 +36,7 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 14,
+        color: 'grey',
     },
 });
 

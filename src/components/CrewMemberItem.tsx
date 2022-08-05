@@ -4,7 +4,6 @@ import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-n
 import { PRIMARY_COLOR } from '@constants/colors';
 import { Crew } from '@type/crew';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface Props {
     crewMember: Crew;
@@ -15,9 +14,8 @@ const styles = StyleSheet.create({
     container: {
         height: 90,
         alignItems: 'center',
-        backgroundColor: Colors.white,
+        backgroundColor: 'white',
         borderRadius: 15,
-        shadowColor: Colors.shadowColor,
         shadowOffset: { width: 0, height: 5 },
         shadowOpacity: 2,
         shadowRadius: 2,
@@ -36,7 +34,6 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 25,
-        backgroundColor: Colors.history_back,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -47,7 +44,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 18,
-        color: Colors.black,
+        color: 'black',
         fontWeight: 'bold',
         textTransform: 'capitalize',
     },
@@ -55,7 +52,7 @@ const styles = StyleSheet.create({
         marginTop: 4,
     },
     agency: {
-        color: Colors.gray,
+        color: 'gray',
         fontSize: 14,
     },
     textContainer: { marginLeft: 12 },

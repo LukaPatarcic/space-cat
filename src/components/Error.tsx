@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginTop: 10,
         marginBottom: 10,
+        color: 'black',
     },
     image: { width: 300, height: 300 },
 });
