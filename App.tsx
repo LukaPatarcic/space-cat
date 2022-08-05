@@ -18,6 +18,12 @@ const queryClient = new QueryClient();
 const Tab = createBottomTabNavigator<TabParamList>();
 const CrewMembersStack = createNativeStackNavigator<CrewMemberStackParamList>();
 
+// eslint-disable-next-line no-unused-vars
+const icons: { [key in keyof TabParamList]: string } = {
+    Rockets: 'rocket',
+    RootCrewMembers: 'md-people-sharp',
+};
+
 function CrewMembersStackPage() {
     return (
         <CrewMembersStack.Navigator>
@@ -54,15 +60,7 @@ const App = () => {
                         tabBarActiveTintColor: PRIMARY_COLOR,
                         tabBarInactiveTintColor: 'rgba(0,0,0,0.5)',
                         tabBarIcon: ({ focused, color, size }) => {
-                            let iconName = 'rocket';
-
-                            if (route.name === 'Rockets') {
-                                iconName = focused ? 'rocket' : 'rocket-outline';
-                            } else if (route.name === 'RootCrewMembers') {
-                                iconName = focused ? 'md-people-sharp' : 'md-people-outline';
-                            }
-
-                            // You can return any component that you like here!
+                            const iconName = icons[`${route.name}`] + focused ? '-outline' : '';
                             return <Icon name={iconName} size={size} color={color} />;
                         },
                     })}
