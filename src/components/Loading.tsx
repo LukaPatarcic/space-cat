@@ -1,6 +1,7 @@
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import React from 'react';
-import { PRIMARY_COLOR } from '../constants/colors';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+
+import { PRIMARY_COLOR } from '@constants/colors';
 
 const styles = StyleSheet.create({
     container: {

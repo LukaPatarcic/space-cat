@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import { StyleSheet, Image, Text, TouchableWithoutFeedback, View } from 'react-native';
-import { Crew } from '../types/crew';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+
+import { PRIMARY_COLOR } from '@constants/colors';
+import { Crew } from '@type/crew';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { PRIMARY_COLOR } from '../constants/colors';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface Props {
     crewMember: Crew;

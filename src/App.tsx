@@ -1,19 +1,20 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+
+import { PRIMARY_COLOR } from '@constants/colors';
+import { TEXTS } from '@constants/texts';
+import { showToast } from '@helpers/toast';
+import CrewMemberPage from '@pages/CrewMemberPage';
+import CrewMembersPage from '@pages/CrewMembersPage';
+import RocketsPage from '@pages/RocketsPage';
+import NetInfo from '@react-native-community/netinfo';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import RocketsPage from './src/pages/RocketsPage';
-import CrewMembersPage from './src/pages/CrewMembersPage';
-import CrewMemberPage from './src/pages/CrewMemberPage';
-import NetInfo from '@react-native-community/netinfo';
 import { onlineManager } from '@tanstack/react-query';
-import { useEffect } from 'react';
-import { showToast } from './src/helpers/toast';
-import { CrewMemberStackParamList, TabParamList } from './src/types/router';
+import { CrewMemberStackParamList, TabParamList } from '@type/router';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { PRIMARY_COLOR } from './src/constants/colors';
-import { TEXTS } from './src/constants/texts';
 
 const queryClient = new QueryClient();
 const Tab = createBottomTabNavigator<TabParamList>();

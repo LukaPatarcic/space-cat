@@ -1,6 +1,7 @@
+import { Crew } from '@type/crew';
+import { Rocket } from '@type/rocket';
+
 import { fetchJson } from './index';
-import { Crew } from '../types/crew';
-import { Rocket } from '../types/rocket';
 
 export const getRockets = () => fetchJson<Rocket[]>('/rockets');
 

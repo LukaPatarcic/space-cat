@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { Rocket } from '../types/rocket';
+
+import { Rocket } from '@type/rocket';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface Props {

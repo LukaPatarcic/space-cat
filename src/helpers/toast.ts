@@ -1,4 +1,4 @@
-import { ToastAndroid, Platform, Alert } from 'react-native';
+import { Alert, Platform, ToastAndroid } from 'react-native';
 
 export const showToast = (msg: string) => {
     if (Platform.OS === 'android') {

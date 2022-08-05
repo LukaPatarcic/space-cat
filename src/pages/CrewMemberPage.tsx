@@ -1,13 +1,14 @@
 import React, { FC, useEffect } from 'react';
 import { Image, Linking, Platform, StyleSheet, Text, View } from 'react-native';
-import { NavigationProp, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { CrewMemberStackParamList } from '../types/router';
-import { PERMISSIONS, requestMultiple } from 'react-native-permissions';
-import { showToast } from '../helpers/toast';
-import { capitalize } from '../helpers';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { TEXTS } from '../constants/texts';
+
+import { TEXTS } from '@constants/texts';
+import { capitalize } from '@helpers/index';
+import { showToast } from '@helpers/toast';
 import Clipboard from '@react-native-clipboard/clipboard';
+import { NavigationProp, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { CrewMemberStackParamList } from '@type/router';
+import { PERMISSIONS, requestMultiple } from 'react-native-permissions';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type CrewMemberScreenRouteProp = RouteProp<CrewMemberStackParamList, 'CrewMember'>;
 type CrewMemberScreenNavigationProp = NavigationProp<CrewMemberStackParamList, 'CrewMembers'>;

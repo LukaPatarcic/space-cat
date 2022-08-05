@@ -1,6 +1,7 @@
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import React, { FC } from 'react';
-import { PRIMARY_COLOR } from '../constants/colors';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
+
+import { PRIMARY_COLOR } from '@constants/colors';
 
 interface Props {
     message: string;

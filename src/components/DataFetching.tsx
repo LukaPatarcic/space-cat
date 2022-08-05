@@ -1,9 +1,10 @@
 import React from 'react';
 import { FlatList, ListRenderItem, View } from 'react-native';
-import Loading from '../components/Loading';
-import Error from '../components/Error';
-import { TEXTS } from '../constants/texts';
-import { showToast } from '../helpers/toast';
+
+import Error from '@components/Error';
+import Loading from '@components/Loading';
+import { TEXTS } from '@constants/texts';
+import { showToast } from '@helpers/toast';
 
 type ArrElement<ArrType> = ArrType extends readonly (infer ElementType)[] ? ElementType : never;
 type RenderItem<T> = NonNullable<ArrElement<T>>;

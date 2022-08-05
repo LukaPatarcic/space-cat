@@ -1,13 +1,31 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "@api/*": ["src/api/*"],
-      "@type/*": ["src/types/*"],
-      "@component/*": ["src/components/*"]
-    },
-    "skipLibCheck": true,
-    "strict": true
-  }
+    "extends": "@tsconfig/react-native/tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "strict": true,
+        "skipLibCheck": true,
+        "typeRoots": [
+            "src/types/*"
+        ],
+        "paths": {
+            "@api/*": [
+                "src/api/*"
+            ],
+            "@type/*": [
+                "src/types/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@constants/*": [
+                "src/constants/*"
+            ],
+            "@helpers/*": [
+                "src/helpers/*"
+            ]
+        }
+    }
 }

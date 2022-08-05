@@ -1,10 +1,11 @@
 import React from 'react';
-import { getCrewMembers } from '../api/spaceX';
-import { useQuery } from '@tanstack/react-query';
+
+import { getCrewMembers } from '@api/spaceX';
+import CrewMemberItem from '@components/CrewMemberItem';
+import DataFetching from '@components/DataFetching';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { CrewMemberStackParamList } from '../types/router';
-import CrewMemberItem from '../components/CrewMemberItem';
-import DataFetching from '../components/DataFetching';
+import { useQuery } from '@tanstack/react-query';
+import { CrewMemberStackParamList } from '@type/router';
 
 type CrewMembersScreenRouteProp = NavigationProp<CrewMemberStackParamList, 'CrewMembers'>;
 

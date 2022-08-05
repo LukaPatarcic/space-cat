@@ -1,8 +1,9 @@
 import React from 'react';
-import { getRockets } from '../api/spaceX';
+
+import { getRockets } from '@api/spaceX';
+import DataFetching from '@components/DataFetching';
+import RocketItem from '@components/RocketItem';
 import { useQuery } from '@tanstack/react-query';
-import RocketItem from '../components/RocketItem';
-import DataFetching from '../components/DataFetching';
 
 const RocketsPage = () => {
     const { data, isLoading, isFetching, isPaused, isError, refetch } = useQuery(
