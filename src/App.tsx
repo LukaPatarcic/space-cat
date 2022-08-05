@@ -31,12 +31,15 @@ function CrewMembersStackPage() {
         <CrewMembersStack.Navigator>
             <CrewMembersStack.Screen
                 name="CrewMembers"
-                options={{ title: 'Crew Members' }}
+                options={{ title: 'Crew Members', headerTintColor: PRIMARY_COLOR }}
                 component={CrewMembersPage}
             />
             <CrewMembersStack.Screen
                 name="CrewMember"
-                options={({ route }) => ({ title: route.params.crewMember.name })}
+                options={({ route }) => ({
+                    title: route.params.crewMember.name,
+                    headerTintColor: PRIMARY_COLOR,
+                })}
                 component={CrewMemberPage}
             />
         </CrewMembersStack.Navigator>
@@ -70,10 +73,17 @@ const App = () => {
                         },
                     })}
                 >
-                    <Tab.Screen name="Rockets" component={RocketsPage} />
+                    <Tab.Screen
+                        name="Rockets"
+                        component={RocketsPage}
+                        options={{ headerTintColor: PRIMARY_COLOR }}
+                    />
                     <Tab.Screen
                         name="RootCrewMembers"
-                        options={{ headerShown: false, title: 'Crew Members' }}
+                        options={{
+                            headerShown: false,
+                            title: 'Crew Members',
+                        }}
                         component={CrewMembersStackPage}
                     />
                 </Tab.Navigator>

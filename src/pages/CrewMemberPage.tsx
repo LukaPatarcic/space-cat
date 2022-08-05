@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         width: 180,
     },
     status: { fontSize: 18 },
-    name: { fontSize: 24, color: 'black' },
+    name: { fontSize: 24, color: 'black', fontWeight: 'bold' },
     agency: { fontSize: 18, color: 'grey' },
 });
 

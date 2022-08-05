@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         marginRight: 16,
     },
+    leftContainer: { flexDirection: 'row', alignItems: 'center' },
     imageContainer: {
         height: 50,
         width: 50,
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
         width: 50,
     },
     name: {
-        fontSize: 14,
+        fontSize: 18,
         color: Colors.black,
         fontWeight: 'bold',
         textTransform: 'capitalize',
@@ -55,15 +56,16 @@ const styles = StyleSheet.create({
     },
     agency: {
         color: Colors.gray,
-        fontSize: 12,
+        fontSize: 14,
     },
+    textContainer: { marginLeft: 12 },
 });
 
 const RocketsPage: FC<Props> = ({ crewMember, onPress }) => {
     return (
         <TouchableWithoutFeedback key={crewMember.id} onPress={onPress}>
             <View style={styles.container}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={styles.leftContainer}>
                     <View style={styles.imageContainer}>
                         <Image
                             source={{ uri: crewMember.image }}
@@ -71,7 +73,7 @@ const RocketsPage: FC<Props> = ({ crewMember, onPress }) => {
                             style={styles.image}
                         />
                     </View>
-                    <View style={{ marginLeft: 12 }}>
+                    <View style={styles.textContainer}>
                         <Text style={styles.name}>{crewMember.name}</Text>
                         <View style={styles.agencyContainer}>
                             <Text style={styles.agency}>{crewMember.agency}</Text>
